@@ -1,6 +1,9 @@
 package cucumbersteps;
 
 
+import java.util.List;
+
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -18,11 +21,11 @@ public class NewCarsStepDefs {
 	    
 	}
 	@Then("^user clicks on find new cars$")
-	public void user_clicks_on_find_new_cars() {
-	System.out.println("@Then-----User clicks on car");    	
+	public void user_clicks_on_find_new_cars(List<String>price) {
+	System.out.println("@Then-----User clicks on car:"+price.get(2));    	
 	}
-	@Then("^user seraches for KIA Car$")
-	public void user_seraches_for_KIA_Car() {
-	    System.out.println("Then-----User searches for KIA Car");
+	@And("^user seraches for (.*) Car$")
+	public void user_seraches_for_Car(String brandName) {
+	    System.out.println("@And-----User searches for Car:"+brandName);
 	}
 }
